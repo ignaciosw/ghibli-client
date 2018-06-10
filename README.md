@@ -12,5 +12,7 @@ The application by default has a feature that brings the browser to the homepage
 No special coding yet, that should come later this week.
 
 ToDo: add routes/views/collections/templates for producers and directors
+
 ToDo: add routes/views/templates and flag for "seen by me"
+
 ToDo: add input to do a filter/search by title
