@@ -20,6 +20,7 @@ ToDo: add input to do a filter/search by title
 ------------------------------------------------------------
 
 Monday June 11th
+
 I'm not using models separately so I removed the 'models' folder.
 the homepage (film list) is created and I started the logic for "seen" films. All seen filmID's will be stored locally.
 Updated foundation css and js, and added html features for the header. (tab links)
