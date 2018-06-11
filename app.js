@@ -19,6 +19,19 @@
 			App.inactivityReset();
 		});
 
+		//Load all collections
+		App.people = new App.PeopleCollection();
+		App.vehicles = new App.VehicleCollection();
+		App.locations = new App.LocationCollection();
+		App.producers = App.getAllProducers();//todo
+		App.directors = App.getAllDirectors();//todo
+		
+		App.films = new App.FilmCollection();
+		App.films.models = App.films.sortBy("title");
+		App.films.orderByField = "title";
+
+		App.seenID = new Backbone.LocalStorage("seen-films");
+
 		App.start();
 	}
 
@@ -27,6 +40,22 @@
 		App.router = new App.Router({ "container" : App.config.container });
 		// Start the main router
 		Backbone.history.start();
+	}
+
+	App.getAllProducers = function(){
+		var producers = [];
+		_.each(App.films, function(film){
+			//TODO
+		});
+		return producers;
+	}
+
+	App.getAllDirectors = function(){
+		var directors = [];
+		_.each(App.films, function(film){
+			//TODO
+		});
+		return directors;
 	}
 
 	App.inactivity = function() {
