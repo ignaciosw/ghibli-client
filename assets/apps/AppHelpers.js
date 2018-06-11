@@ -37,7 +37,12 @@ App.helpers = {
 
 		return result;
 	},
-	
+
+	filterById: function(collection, idArray) {
+		var tmpCol = new Backbone.Collection(collection.toJSON());
+		return tmpCol.reset(_.map(idArray, function(id) { return tmpCol.get(id); }, tmpCol));  
+	},
+
 	findDeep : function(obj, subObj, attr){
 		return _(obj).chain().
 			    pluck(subObj).
