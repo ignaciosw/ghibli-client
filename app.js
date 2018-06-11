@@ -30,7 +30,6 @@
 		App.films.orderByField = "title";
 
 		//load local storage
-		App.seenfFilms = new App.FilmCollection();
 		App.seenID = new Backbone.LocalStorage("seen-films");
 
 		App.producers = App.getAllProducers();//todo
