@@ -1,6 +1,7 @@
 App.HeaderView = Backbone.View.extend({
 
-	initialize : function(params) {
+	initialize : function() {
+		//get film list
 		this.data = {};
 		this.tpl = this.template();
 	},
@@ -21,7 +22,13 @@ App.HeaderView = Backbone.View.extend({
 	},
 
 	afterRender : function() {
-		//all things that happen after html render
+		//all things happening after html render
+		$(".tabs-title").on("click", function(){
+			$(".tabs-title a").removeAttr("aria-selected");
+			$(".tabs-title").removeClass("is-active");
+			$(this).addClass("is-active");
+			$(this).find("a").attr("aria-selected","true");
+		});
 	}
 
 });

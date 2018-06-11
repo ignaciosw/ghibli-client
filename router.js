@@ -10,7 +10,8 @@ App.Router = Backbone.Router.extend({
 		"film/:id" : "showFilm",
 		"location/:id" : "showLocation",
 		"people/:id" : "showPeople",
-		"vehicle/:id" : "showVehicle"
+		"vehicle/:id" : "showVehicle",
+		"seen" : "showSeen"
 	},
 
 	home : function() {
@@ -22,6 +23,7 @@ App.Router = Backbone.Router.extend({
 	},
 
 	showFilm : function(id) {
+		App.filmID = id;
 		this.currentPage = "film";
 		this.changePage([
 			new App.HeaderView(),
@@ -31,6 +33,7 @@ App.Router = Backbone.Router.extend({
 
 	showLocation : function(id) {
 		this.currentPage = "location";
+		App.locationID = id;
 		this.changePage([
 			new App.HeaderView(),
 			App.view = new App.LocationView()
@@ -39,6 +42,7 @@ App.Router = Backbone.Router.extend({
 
 	showPeople : function(id) {
 		this.currentPage = "people";
+		App.personID = id;
 		this.changePage([
 			new App.HeaderView(),
 			App.view = new App.PeopleView()
@@ -47,9 +51,18 @@ App.Router = Backbone.Router.extend({
 
 	showVehicle : function(id) {
 		this.currentPage = "vehicle";
+		App.vehicleID = id;
 		this.changePage([
 			new App.HeaderView(),
 			App.view = new App.VehicleView()
+		]);
+	},
+
+	showSeen : function(){
+		this.currentPage = "seen";
+		this.changePage([
+			new App.HeaderView(),
+			App.view = new App.SeenView()
 		]);
 	},
 
@@ -74,6 +87,7 @@ App.Router = Backbone.Router.extend({
 
         ).done(function() {
         	// Set events for each view
+        	// (we need to do it here, when the html is added to the dom)
         	_.each(views, function(view) {
         		if (typeof view.afterRender == "function") {
 	       			view.afterRender();

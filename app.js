@@ -9,6 +9,7 @@
 			"location" : "templates/location.tpl",
 			"people" : "templates/people.tpl",
 			"vehicle" : "templates/vehicle.tpl",
+			"seen" : "templates/seenByMe.tpl"
 		});
 
 		// Start the inactivity timer
