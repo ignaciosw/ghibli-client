@@ -26,3 +26,6 @@ the homepage (film list) is created and I finished the views/template for "seen"
 Updated foundation css and js, and added html features for the header. (tab links)
 
 All of the collections are loaded intially and then the application uses them locally to query the data.
+
+updated live version:
+http://nachomartinez.art/ghibli-client/
