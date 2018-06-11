@@ -24,14 +24,17 @@
 		App.people = new App.PeopleCollection();
 		App.vehicles = new App.VehicleCollection();
 		App.locations = new App.LocationCollection();
-		App.producers = App.getAllProducers();//todo
-		App.directors = App.getAllDirectors();//todo
 		
 		App.films = new App.FilmCollection();
 		App.films.models = App.films.sortBy("title");
 		App.films.orderByField = "title";
 
+		//load local storage
+		App.seenfFilms = new App.FilmCollection();
 		App.seenID = new Backbone.LocalStorage("seen-films");
+
+		App.producers = App.getAllProducers();//todo
+		App.directors = App.getAllDirectors();//todo
 
 		App.start();
 	}
@@ -45,18 +48,18 @@
 
 	App.getAllProducers = function(){
 		var producers = [];
-		_.each(App.films, function(film){
-			//TODO
+		_.each(App.films.models, function(film){
+			producers.push(film.get("producer"));
 		});
-		return producers;
+		return _.uniq(producers);
 	}
 
 	App.getAllDirectors = function(){
 		var directors = [];
-		_.each(App.films, function(film){
-			//TODO
+		_.each(App.films.models, function(film){
+			directors.push(film.get("director"));
 		});
-		return directors;
+		return _.uniq(directors);
 	}
 
 	App.inactivity = function() {
