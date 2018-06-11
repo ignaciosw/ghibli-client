@@ -32,8 +32,8 @@
 		//load local storage
 		App.seenID = new Backbone.LocalStorage("seen-films");
 
-		App.producers = App.getAllProducers();//todo
-		App.directors = App.getAllDirectors();//todo
+		App.producers = App.getAllProducers();
+		App.directors = App.getAllDirectors();
 
 		App.start();
 	}
