@@ -3,6 +3,7 @@
 Notes on commits:
 
 Sunday June 10th
+
 First commit. A skeleton of my typical Backbone application, with empty Collections, Models and Views.
 This took me literally no time at all since I always have an empty app like this, and I just added a few things in 10 minutes and did the commit. That means empty files for Collections, Models, Templates and Views.
 A config file was added providing API url and endpoints.
