@@ -9,7 +9,9 @@
 			"location" : "templates/location.tpl",
 			"people" : "templates/people.tpl",
 			"vehicle" : "templates/vehicle.tpl",
-			"seen" : "templates/seenByMe.tpl"
+			"seen" : "templates/seenByMe.tpl",
+			"directors" : "templates/directors.tpl",
+			"producers" : "templates/producers.tpl"
 		});
 
 		// Start the inactivity timer
@@ -30,7 +32,7 @@
 		App.films.orderByField = "title";
 
 		//load local storage
-		App.seenID = new Backbone.LocalStorage("seen-films");
+		App.seenID = new Backbone.LocalStorage("ghibli-seen-films");
 
 		App.producers = App.getAllProducers();
 		App.directors = App.getAllDirectors();

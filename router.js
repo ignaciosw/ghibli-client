@@ -11,7 +11,9 @@ App.Router = Backbone.Router.extend({
 		"location/:id" : "showLocation",
 		"people/:id" : "showPeople",
 		"vehicle/:id" : "showVehicle",
-		"seen" : "showSeen"
+		"seen" : "showSeen",
+		"producers" : "showProducers",
+		"directors" : "showDirectors",
 	},
 
 	home : function() {
@@ -63,6 +65,22 @@ App.Router = Backbone.Router.extend({
 		this.changePage([
 			new App.HeaderView(),
 			App.view = new App.SeenView()
+		]);
+	},
+
+	showProducers : function(){
+		this.currentPage = "producers";
+		this.changePage([
+			new App.HeaderView(),
+			App.view = new App.ProducersView()
+		]);
+	},
+
+	showDirectors : function(){
+		this.currentPage = "directors";
+		this.changePage([
+			new App.HeaderView(),
+			App.view = new App.DirectorsView()
 		]);
 	},
 

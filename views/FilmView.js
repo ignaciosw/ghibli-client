@@ -1,7 +1,8 @@
 App.FilmView = Backbone.View.extend({
 
-	initialize : function(params) {
-		this.data = {};
+	initialize : function() {
+		App.film = App.films.get(App.filmID);
+		this.data = App.film.toJSON();//transform the whole model to JSON.
 		this.tpl = this.template();
 	},
 
@@ -21,7 +22,42 @@ App.FilmView = Backbone.View.extend({
 	},
 
 	afterRender : function() {
-		//all things that happen after html render
+		//all things happening after html render
+
+		//find if film is seen
+		if(_.indexOf(App.seenID.records, App.filmID) > -1){
+			$(".seen").find("img").removeClass("gray-eye").attr("title","Seen by me");
+		}
+
+		//seen button beheaviour
+		$(".seen").on("click", function(e){
+			e.preventDefault();
+			if($(this).find("img").hasClass("gray-eye")){
+				App.seenID.records.push(App.filmID);
+				App.seenID.save();
+				$(this).find("img").removeClass("gray-eye").attr("title","Seen by me");
+			}else{
+				App.seenID.records = _.without(App.seenID.records, App.filmID);
+				App.seenID.save();
+				$(this).find("img").addClass("gray-eye").attr("title","Not seen by me");
+			}
+		});
+
+		//set links behaviour
+		$(".person-link").on("click", function(e){
+			e.preventDefault();
+			App.router.navigate("people/" + $(this).data("id"), {trigger:true});
+		});
+
+		$(".location-link").on("click", function(e){
+			e.preventDefault();
+			App.router.navigate("location/" + $(this).data("id"), {trigger:true});
+		});
+
+		$(".vehicle-link").on("click", function(e){
+			e.preventDefault();
+			App.router.navigate("vehicle/" + $(this).data("id"), {trigger:true});
+		});
 	}
 
 });
