@@ -29,6 +29,20 @@ App.HeaderView = Backbone.View.extend({
 			$(this).addClass("is-active");
 			$(this).find("a").attr("aria-selected","true");
 		});
+
+		$("#tab-random").on("click", function(e){
+			e.preventDefault();
+			var shuffleFilms = new Backbone.Collection(App.films.shuffle());
+			_.each(App.seenID.records, function(id){
+				shuffleFilms.remove(shuffleFilms.get(id));
+			});
+			if(shuffleFilms.models.length > 0){
+				var randomIndex = Math.abs(Math.ceil(Math.random() * shuffleFilms.models.length-1) + 0);
+				App.router.navigate("film/" + shuffleFilms.models[randomIndex].get("id"), {trigger:true})
+			}else{
+				alert("you've seen all of the movies...");
+			}
+		});
 	}
 
 });
