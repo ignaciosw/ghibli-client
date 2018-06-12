@@ -37,11 +37,11 @@ Tuesday June 12th
 
 Film details page is done. It includes an "eye icon" to toggle between seen/unseen.
 List of all producers and directors available, in alphabetical order.
+Random unseen film.
 
 PENDING:
 
 - Details for People, Locations, Vehicles
-- Random unseen (link now goes to home)
 - General overwiew of code, performance, final wrap.
 
 updated live version:
