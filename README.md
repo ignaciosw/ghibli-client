@@ -16,8 +16,6 @@ ToDo: add routes/views/collections/templates for producers and directors
 
 ToDo: add routes/views/templates and flag for "seen by me"
 
-ToDo: add input to do a filter/search by title
-
 ------------------------------------------------------------
 
 Monday June 11th
@@ -49,13 +47,22 @@ http://nachomartinez.art/ghibli-client/
 
 ------------------------------------------------------------
 
-Wednesday June 13th
+Wednesday June 13th 10h00
 
 Details page for People and Locations.
 
 - Pending: Vehicles.
 - General overwiew of code, performance, final wrap.
 
+http://nachomartinez.art/ghibli-client/
+
+------------------------------------------------------------
+
+Wednesday June 13th 14h30
+
+Final commit.
+
+Live version:
 http://nachomartinez.art/ghibli-client/
 
 
