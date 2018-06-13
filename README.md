@@ -46,3 +46,14 @@ PENDING:
 
 updated live version:
 http://nachomartinez.art/ghibli-client/
+
+------------------------------------------------------------
+
+Wednesday June 13th
+
+Details page for People.
+
+- Pending: Locations, Vehicles.
+- General overwiew of code, performance, final wrap.
+
+updated live version pending...
