@@ -58,3 +58,5 @@ Details page for People.
 
 updated live version:
 http://nachomartinez.art/ghibli-client/
+
+
