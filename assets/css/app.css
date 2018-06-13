@@ -27,7 +27,19 @@ div {
 
 .main-container-inner {
 	display: inline-block;
-	width:60%;
+	width:70%;
+}
+
+@media (max-width: 1100px) {
+	.main-container-inner {
+		width: 90%
+	}
+}
+
+@media (max-width: 900px) {
+	.main-container-inner {
+		width: 100%
+	}
 }
 
 .header {
