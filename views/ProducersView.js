@@ -1,7 +1,7 @@
 App.ProducersView = Backbone.View.extend({
 
 	initialize : function() {
-		//get film list
+		//get producers list alphabetically
 		this.data = App.producers.sort();
 		this.tpl = this.template();
 	},

@@ -35,6 +35,7 @@ App.HomeView = Backbone.View.extend({
 			App.router.navigate("film/" + $(this).data("id"), {trigger:true});
 		});
 
+		//SORT
 		$("#sortBy_title").on("click", function(e){
 			App.films.orderByField = "title";
 			App.films.models = App.films.sortBy(App.films.orderByField);

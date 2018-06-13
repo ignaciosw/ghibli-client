@@ -30,15 +30,21 @@ App.HeaderView = Backbone.View.extend({
 			$(this).find("a").attr("aria-selected","true");
 		});
 
+		//RANDOM FILM LINK
 		$("#tab-random").on("click", function(e){
 			e.preventDefault();
+
+			//shuffle film list
 			var shuffleFilms = new Backbone.Collection(App.films.shuffle());
+			//remove seen films
 			_.each(App.seenID.records, function(id){
 				shuffleFilms.remove(shuffleFilms.get(id));
 			});
+
+			//if there are still some unseen ones, choose the first one
+			//or else show alert saying that you've seen them all
 			if(shuffleFilms.models.length > 0){
-				var randomIndex = Math.abs(Math.ceil(Math.random() * shuffleFilms.models.length-1) + 0);
-				App.router.navigate("film/" + shuffleFilms.models[randomIndex].get("id"), {trigger:true})
+				App.router.navigate("film/" + shuffleFilms.models[0].get("id"), {trigger:true})
 			}else{
 				alert("you've seen all of the movies...");
 			}

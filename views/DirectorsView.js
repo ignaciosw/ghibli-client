@@ -1,7 +1,7 @@
 App.DirectorsView = Backbone.View.extend({
 
 	initialize : function() {
-		//get film list
+		//get directors list, alphabetically
 		this.data = App.directors.sort();
 		this.tpl = this.template();
 	},

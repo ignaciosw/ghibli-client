@@ -3,10 +3,11 @@ App.SeenView = Backbone.View.extend({
 	initialize : function() {
 		//create the collection on each load in case there are new changes in the local data
 		App.seen = new Backbone.Collection(App.films.toJSON());
-		//then filter by seen, and sort by title
+		//then sort by title
 		App.seen.models = App.seen.sortBy("title");
 		App.seen.orderByField = "title";
-		App.seen.models = App.helpers.filterById(App.films, App.seenID.records);
+		//finally filter with "seen" ID's and populate
+ 		App.seen.models = App.helpers.filterById(App.films, App.seenID.records);
 		
 		this.data = App.seen.toJSON();
 		this.tpl = this.template();
@@ -40,25 +41,6 @@ App.SeenView = Backbone.View.extend({
 		$(".film-link").on("click", function(e){
 			e.preventDefault();
 			App.router.navigate("film/" + $(this).data("id"), {trigger:true});
-		});
-
-		// $(".seen-link").on("click", function(e){
-		// 	e.preventDefault();
-		// 	App.router.navigate("film/" + $(this).data("id"), {trigger:true});
-		// });
-
-		$("#sortBy_title").on("click", function(e){
-			App.seen.orderByField = "title";
-			App.seen.models = App.seen.sortBy(App.seen.orderByField);
-			//reload content after sort
-			App.helpers.reloadPage();
-		});
-
-		$("#sortBy_release_date").on("click", function(e){
-			App.seen.orderByField = "release_date";
-			App.seen.models = App.seen.sortBy(App.seen.orderByField);
-			//reload content after sort
-			App.helpers.reloadPage();
 		});
 	}
 });
