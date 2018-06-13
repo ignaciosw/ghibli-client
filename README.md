@@ -56,6 +56,6 @@ Details page for People and Locations.
 - Pending: Vehicles.
 - General overwiew of code, performance, final wrap.
 
-updated live version pending...
+http://nachomartinez.art/ghibli-client/
 
 
