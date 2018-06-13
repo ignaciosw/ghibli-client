@@ -1,7 +1,17 @@
 App.PeopleView = Backbone.View.extend({
 
-	initialize : function(params) {
-		this.data = {};
+	initialize : function() {
+		App.person = App.people.get(App.personID);
+		//get film list
+		_.each(App.person.attributes.films, function(film,index){
+			var url = film;
+			//in case it hasn't been already transformed to film object
+			if(typeof url === "string"){
+				App.person.attributes.films[index] = App.helpers.loadJSON(url);
+			}
+		});
+
+		this.data = App.person.toJSON();
 		this.tpl = this.template();
 	},
 
@@ -21,6 +31,11 @@ App.PeopleView = Backbone.View.extend({
 	},
 
 	afterRender : function() {
-		//all things that happen after html render
+		//all things happening after html render
+		$(".film-link").on("click", function(e){
+			e.preventDefault();
+			App.router.navigate("film/" + $(this).data("id"), {trigger:true});
+		});
 	}
+
 });
