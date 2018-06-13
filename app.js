@@ -28,6 +28,7 @@
 		App.locations = new App.LocationCollection();
 		
 		App.films = new App.FilmCollection();
+		//by default sort by title
 		App.films.models = App.films.sortBy("title");
 		App.films.orderByField = "title";
 
