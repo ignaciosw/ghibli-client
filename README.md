@@ -51,9 +51,9 @@ http://nachomartinez.art/ghibli-client/
 
 Wednesday June 13th
 
-Details page for People.
+Details page for People and Locations.
 
-- Pending: Locations, Vehicles.
+- Pending: Vehicles.
 - General overwiew of code, performance, final wrap.
 
 updated live version:
